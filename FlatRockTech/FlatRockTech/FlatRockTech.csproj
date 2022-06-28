@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FlatRockTech_DataAccess\FlatRockTech_DataAccess.csproj" />
+    <ProjectReference Include="..\FlatRockTech_Models\FlatRockTech_Models.csproj" />
+  </ItemGroup>
+
 </Project>
