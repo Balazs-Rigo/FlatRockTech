@@ -1,0 +1,75 @@
+﻿@model FlatRockTech_Models.ViewModels.QuestionVM
+
+@{
+    ViewData["Title"] = "Upsert";
+}
+
+<h1>Upsert Question</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Upsert">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Question.Question_Id" />
+                      <div class="form-group row">
+                    <div class="col-sm-12">
+                        <label asp-for="Question.Quote" class="control-label"></label>
+                        @*<input asp-for="Quote" class="form-control" />*@
+                        @Html.TextAreaFor(m => m.Question.Quote, new {@class="form-control"})
+                        <span asp-validation-for="Question.Quote" class="text-danger"></span>
+                    </div>                    
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label asp-for="Question.Answers[0].Author" class="control-label"></label>
+                        <input asp-for="Question.Answers[0].Author" class="form-control" />
+                        <span asp-validation-for="Question.Answers[0].Author" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6">
+                      <label asp-for="Question.Answers[0].AnswerType" class="control-label"></label>
+                        @*<input asp-for="AnswerList[0].AnswerType" class="form-control" />*@
+                        @Html.DropDownListFor(u => u.Question.Answers[0].AnswerType_Id, Model.AnswerTypeList, "--Select an answer--",
+                        new { @class = "form-control" })
+                        <span asp-validation-for="Question.Answers[0].AnswerType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label asp-for="Question.Answers[1].Author" class="control-label"></label>
+                        <input asp-for="Question.Answers[1].Author" class="form-control" />
+                        <span asp-validation-for="Question.Answers[1].Author" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6">
+                       <label asp-for="Question.Answers[1].AnswerType" class="control-label"></label>
+                        @*<input asp-for="AnswerList[0].AnswerType" class="form-control" />*@
+                        @Html.DropDownListFor(u => u.Question.Answers[1].AnswerType_Id, Model.AnswerTypeList, "--Select an answer--",
+                        new { @class = "form-control" })
+                        <span asp-validation-for="Question.Answers[1].AnswerType" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label asp-for="Question.Answers[2].AnswerType" class="control-label"></label>
+                        <input asp-for="Question.Answers[2].AnswerType" class="form-control" />
+                        <span asp-validation-for="Question.Answers[2].AnswerType" class="text-danger"></span>
+                    </div>
+                    <div class="col-sm-6">
+                      <label asp-for="Question.Answers[2].AnswerType" class="control-label"></label>
+                        @*<input asp-for="AnswerList[0].AnswerType" class="form-control" />*@
+                        @Html.DropDownListFor(u => u.Question.Answers[2].AnswerType_Id, Model.AnswerTypeList, "--Select an answer--",
+                        new { @class = "form-control" })
+                        <span asp-validation-for="Question.Answers[2].AnswerType" class="text-danger"></span>
+                    </div>
+                </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
