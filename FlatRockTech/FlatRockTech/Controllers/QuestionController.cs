@@ -42,12 +42,11 @@ namespace FlatRockTech.Controllers
             if (id == null)
                 return View(obj);
 
-            return View(obj);
-            //obj = _db.Questions.FirstOrDefault(u => u.Question_Id == id);
-            //if (obj == null)
-            //    return NotFound();
+            obj.Question = _db.Questions.FirstOrDefault(u => u.Question_Id == id);
+            if (obj == null)
+                return NotFound();
 
-            //return View(obj);
+            return View(obj);
         }
 
         [HttpPost]
@@ -56,19 +55,19 @@ namespace FlatRockTech.Controllers
         {
             //if (ModelState.IsValid)
             //{
-            //    if (obj.Question_Id == 0)
-            //    {
-            //        //this is create
-            //        _db.Questions.Add(obj);
-            //    }
-            //    else
-            //    {
-            //        //this is an update
-            //        _db.Questions.Update(obj);
-            //    }
-            //    _db.SaveChanges();
-            //    return RedirectToAction(nameof(Index));
-            //}
+                if (obj.Question.Question_Id == 0)
+                {
+                    //this is create - miutan letrehoztam a kerdest, kell belole az ID, es azt adom hozza a tobbihez
+                    _db.Questions.Add(obj.Question);
+                }
+                else
+                {
+                    //this is an update
+                    _db.Questions.Update(obj.Question);
+                }
+                _db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+           // }
             return View(obj);
         }
     }
