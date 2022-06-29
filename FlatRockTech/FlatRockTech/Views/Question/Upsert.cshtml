@@ -31,6 +31,7 @@
                         @*<input asp-for="AnswerList[0].AnswerType" class="form-control" />*@
                         @Html.DropDownListFor(u => u.Question.Answers[0].AnswerType_Id, Model.AnswerTypeList, "--Select an answer--",
                         new { @class = "form-control" })
+                        <input hidden asp-for="Question.Answers[0].Answer_Id" class="form-control" />
                         <span asp-validation-for="Question.Answers[0].AnswerType" class="text-danger"></span>
                     </div>
                 </div>
@@ -43,6 +44,7 @@
                     <div class="col-sm-6">
                        <label asp-for="Question.Answers[1].AnswerType" class="control-label"></label>
                         @*<input asp-for="AnswerList[0].AnswerType" class="form-control" />*@
+                        <input hidden asp-for="Question.Answers[1].Answer_Id" class="form-control" />
                         @Html.DropDownListFor(u => u.Question.Answers[1].AnswerType_Id, Model.AnswerTypeList, "--Select an answer--",
                         new { @class = "form-control" })
                         <span asp-validation-for="Question.Answers[1].AnswerType" class="text-danger"></span>
@@ -52,6 +54,7 @@
                     <div class="col-sm-6">
                         <label asp-for="Question.Answers[2].Author" class="control-label"></label>
                         <input asp-for="Question.Answers[2].Author" class="form-control" />
+                         <input hidden asp-for="Question.Answers[2].Answer_Id" class="form-control" />
                         <span asp-validation-for="Question.Answers[2].Author" class="text-danger"></span>
                     </div>
                     <div class="col-sm-6">
