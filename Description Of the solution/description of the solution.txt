@@ -1,0 +1,9 @@
+On the Home page, you can select a user which you are going to use during filling the quiz.
+It does not do anything in the background, I just want to show how I designed the application.
+
+After select the user, it navigates you to the main page, where you get random qoutes.
+Only the yes/no page is done and only it's front end.
+
+In the settings menu you can add, edit and delet Questions (Quotes) amd answers, and users.
+
+I used Entity Framework Core to manage the database.
