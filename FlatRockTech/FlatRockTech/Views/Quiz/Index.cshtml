@@ -1,0 +1,33 @@
+﻿@model FlatRockTech_Models.Models.Question
+
+@{
+    ViewData["Title"] = "Quiz";
+}
+
+<div class="text-center">
+   <div class="row">
+       <div class="col-6 text-left">
+           <label>Who said it?</label>
+           <div class="col-6 align-self-center jumbotron jumbotron-fluid text-white" style="background-color: #D51DAD;">
+               @Model.Quote
+           </div>
+           <div class="col-6 text-center">
+                @{
+                    Random random = new Random();
+                    int i = random.Next(0, 3);
+                }
+                @Model.Answers[i].Author
+           </div>  
+           <div class="row">
+            <div class="col-6 align-self-start">
+                <button class="btn btn-success btn-lg">Yes</button>
+             </div>
+
+             <div class="col-6 align-self-end">
+                <button class="btn btn-danger btn-lg">No</button>
+             </div>
+             </div>
+       </div>
+   </div>
+
+</div>
